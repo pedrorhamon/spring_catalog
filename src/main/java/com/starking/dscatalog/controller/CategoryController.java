@@ -17,18 +17,18 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/categories")
 @RequiredArgsConstructor
 public class CategoryController {
-	
+
 	private final CategoryService categoryService;
-	
+
 	@GetMapping
 	public ResponseEntity<List<CategoryDTO>> findAll() {
 		List<CategoryDTO> list = this.categoryService.findAll();
 		return ResponseEntity.ok(list);
 	}
-	
+
 	@GetMapping("/{id}")
 	public ResponseEntity<CategoryDTO> findById(@PathVariable Long id) {
 		CategoryDTO dto = this.categoryService.findById(id);
-		return ResponseEntity.ok().body(dto);	
+		return ResponseEntity.ok().body(dto);
 	}
 }

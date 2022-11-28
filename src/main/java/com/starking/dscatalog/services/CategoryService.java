@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.starking.dscatalog.domain.Category;
 import com.starking.dscatalog.domain.dtos.CategoryDTO;
+import com.starking.dscatalog.exception.CategoryException;
 import com.starking.dscatalog.repository.CategoryRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -30,7 +31,7 @@ public class CategoryService {
 	@Transactional(readOnly = true)
 	public CategoryDTO findById(Long id) {
 		Optional<Category> obj = this.categoryRepository.findById(id);
-		Category entity = obj.get();
+		Category entity = obj.orElseThrow(() -> new CategoryException("ID não encontrado"));
 		return new CategoryDTO(entity);
 	}
 }

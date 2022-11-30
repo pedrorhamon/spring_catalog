@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDTO implements Serializable{
+public class CategoryDTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	

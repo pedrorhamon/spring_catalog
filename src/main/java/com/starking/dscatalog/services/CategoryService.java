@@ -41,7 +41,7 @@ public class CategoryService {
 	@Transactional(readOnly = true)
 	public CategoryDTO save(CategoryDTO dto) {
 		Category entity = new Category();
-		entity.setNome(dto.getNome());
+		entity.setName(dto.getNome());
 		entity = this.categoryRepository.save(entity);
 		return new CategoryDTO(entity);
 	}
@@ -50,7 +50,7 @@ public class CategoryService {
 	public CategoryDTO update(Long id, CategoryDTO dto) {
 		try {
 			Category entity = this.categoryRepository.getOne(id);
-			entity.setNome(dto.getNome());
+			entity.setName(dto.getNome());
 			entity = this.categoryRepository.save(entity);
 			return new CategoryDTO(entity);
 		} catch (EntityNotFoundException e) {

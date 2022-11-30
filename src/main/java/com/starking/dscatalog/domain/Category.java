@@ -1,7 +1,9 @@
 package com.starking.dscatalog.domain;
 
 import java.io.Serializable;
+import java.time.Instant;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,13 +13,15 @@ import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "category")
+@EqualsAndHashCode
+@Table(name = "tb_category")
 public class Category implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -27,5 +31,11 @@ public class Category implements Serializable {
 	private Long id;
 
 	@NotNull
-	private String nome;
+	private String name;
+	
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant createdAt;
+
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	private Instant updatedAt;
 }

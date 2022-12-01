@@ -18,10 +18,10 @@ public class CategoryDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
-	private String nome;
+	private String name;
 	
 	public CategoryDTO(Category entity) {
 		this.id = entity.getId();
-		this.nome = entity.getName();
+		this.name = entity.getName();
 	}
 }

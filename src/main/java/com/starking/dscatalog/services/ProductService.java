@@ -35,7 +35,7 @@ public class ProductService {
 	public ProductDTO findById(Long id) {
 		Optional<Product> obj = this.productRepository.findById(id);
 		Product entity = obj.orElseThrow(() -> new CategoryException("ID não encontrado"));
-		return new ProductDTO(entity);
+		return new ProductDTO(entity, entity.getCategories());
 	}
 	
 	@Transactional(readOnly = true)

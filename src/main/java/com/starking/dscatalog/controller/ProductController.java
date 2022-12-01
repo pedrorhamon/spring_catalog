@@ -23,7 +23,7 @@ import com.starking.dscatalog.services.ProductService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping("/producties")
 @RequiredArgsConstructor
 public class ProductController {
 

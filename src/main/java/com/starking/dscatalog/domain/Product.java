@@ -49,5 +49,14 @@ public class Product implements Serializable {
 	@JoinTable(name = "tb_product_category",
 		joinColumns = @JoinColumn(name = "product_id"),
 		inverseJoinColumns = @JoinColumn(name = "category_id"))	
-	Set<Category> categories = new HashSet<>();
+	private Set<Category> categories = new HashSet<>();
+	
+	public Product(Long id, String name, String description, BigDecimal price, Instant date, String imgUrl) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.imgUrl = imgUrl;
+		this.date = date;
+	}
 }

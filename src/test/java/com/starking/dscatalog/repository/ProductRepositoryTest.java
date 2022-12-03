@@ -17,14 +17,17 @@ public class ProductRepositoryTest {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	private long exintigId;
+	private long nonExintigId;
+	
 	@BeforeEach
 	void setUp() throws Exception {
-		
+		exintigId = 1L;;
+		nonExintigId = 1000L;
 	}
 	
 	@Test
 	public void deleteShouldDeleteObjectWhenIdExists() {
-		long exintigId = 1L;
 		
 		this.productRepository.deleteById(exintigId);
 		
@@ -34,7 +37,6 @@ public class ProductRepositoryTest {
 	
 	@Test
 	public void deleteShouldDeleteThrowDataIntegrityViolationException() {
-		long nonExintigId = 1000L;
 		Assertions.assertThrows(DataIntegrityViolationException.class, () -> {
 			this.productRepository.deleteById(nonExintigId);
 		});

@@ -44,7 +44,7 @@ public class ProductServiceTests {
 	private PageImpl<Product> page;
 	
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		existingId = 1L;
 		nonExistingId = 2L;
 		dependentId = 3L;
@@ -64,13 +64,10 @@ public class ProductServiceTests {
 
 	@Test
 	public void findAllPagedShouldReturnPage() {
-		
 		Pageable pageable = PageRequest.of(0, 12);
-		
 		Page<ProductDTO> result = service.findAllPaged(pageable);
 		
 		Assertions.assertNotNull(result);
-		
 		Mockito.verify(this.repository, times(1)).findAll(pageable);
 	}
 	

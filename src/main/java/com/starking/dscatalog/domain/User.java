@@ -1,11 +1,14 @@
 package com.starking.dscatalog.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -40,4 +43,7 @@ public class User implements Serializable {
 	
 	@NotNull
 	private String password;
+	
+	@ManyToOne
+	private Set<Role> roles = new HashSet<>();
 }

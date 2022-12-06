@@ -51,7 +51,7 @@ public class ProductControllerTests {
 	private PageImpl<ProductDTO> page;
 	
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		
 		existingId = 1L;
 		nonExistingId = 2L;

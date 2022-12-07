@@ -1,11 +1,9 @@
 package com.starking.dscatalog.domain.dtos;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-import com.starking.dscatalog.domain.Role;
 import com.starking.dscatalog.domain.User;
 
 import lombok.EqualsAndHashCode;
@@ -25,7 +23,7 @@ public class UserDTO implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private List<Role> roles = new ArrayList<>();
+	private Set<RolesDTO> roles = new HashSet<>();
 	
 	public UserDTO(Long id, String firstName, String lastName, String email) {
 		this.id = id;
@@ -34,12 +32,11 @@ public class UserDTO implements Serializable {
 		this.email = email;
 	}
 
-	@SuppressWarnings("unchecked")
 	public UserDTO(User entity) {
 		id = entity.getId();
 		firstName = entity.getFirstName();
 		lastName = entity.getLastName();
 		email = entity.getEmail();
-		entity.getRoles().forEach(role -> this.roles.addAll((Collection<? extends Role>) new RolesDTO(role)));
+		entity.getRoles().forEach(role -> this.roles.add(new RolesDTO(role)));
 	}
 }

@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +18,6 @@ import lombok.Setter;
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "tb_role")
 public class Role implements Serializable {
 
@@ -30,4 +28,9 @@ public class Role implements Serializable {
 	private Long id;
 	
 	private String authority;
+
+	public Role(Long id, String authority) {
+		this.id = id;
+		this.authority = authority;
+	}
 }

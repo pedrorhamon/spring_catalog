@@ -18,6 +18,8 @@ public class RolesDTO implements Serializable {
 	private Long id;
 	private String authority;
 	
+	public RolesDTO() {}
+	
 	public RolesDTO(Long id, String authority) {
 		this.id = id;
 		this.authority = authority;

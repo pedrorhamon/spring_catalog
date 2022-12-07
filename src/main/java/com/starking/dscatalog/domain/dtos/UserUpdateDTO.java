@@ -1,6 +1,6 @@
-package com.devsuperior.dscatalog.dto;
+package com.starking.dscatalog.domain.dtos;
 
-import com.devsuperior.dscatalog.services.validation.UserUpdateValid;
+import com.starking.dscatalog.services.validation.UserUpdateValid;
 
 @UserUpdateValid
 public class UserUpdateDTO extends UserDTO {

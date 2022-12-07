@@ -52,6 +52,7 @@ public class User implements Serializable {
 	private String lastName;
 	
 	@Email
+	@Column(unique = true)
 	private String email;
 	
 	@NotNull
@@ -63,9 +64,28 @@ public class User implements Serializable {
 		inverseJoinColumns = @JoinColumn(name = "role_id"))		
 	private Set<Role> roles = new HashSet<>();
 	
-	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getAuthority()))
 				.collect(Collectors.toList());
+	}
+	
+	public String getUsername() {
+		return email;
+	}
+
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	public boolean isEnabled() {
+		return true;
 	}
 }

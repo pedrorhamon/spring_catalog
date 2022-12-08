@@ -59,7 +59,7 @@ public class UserService implements UserDetailsService {
 	public UserDTO save(UserInsertDTO dto) {
 		User entity = new User();
 		copyDtoToEntity(dto, entity);
-		entity.setLastName(this.passwordEncoder.encode(dto.getPassword()));
+		entity.setPassword(this.passwordEncoder.encode(dto.getPassword()));
 		entity = this.userRepository.save(entity);
 		return new UserDTO(entity);
 	}

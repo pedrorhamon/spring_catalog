@@ -23,7 +23,7 @@ public class UserDTO implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String email;
-	private Set<RolesDTO> roles = new HashSet<>();
+	Set<RolesDTO> roles = new HashSet<>();
 	
 	public UserDTO(Long id, String firstName, String lastName, String email) {
 		this.id = id;

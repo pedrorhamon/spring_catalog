@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 import com.starking.dscatalog.domain.User;
 
 import lombok.EqualsAndHashCode;
@@ -20,8 +23,12 @@ public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	
+	@NotBlank(message = "Campo obrigatório")
 	private String firstName;
 	private String lastName;
+	
+	@Email(message = "Favor adicionar o email")
 	private String email;
 	Set<RolesDTO> roles = new HashSet<>();
 	

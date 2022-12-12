@@ -26,6 +26,8 @@ public class UserDTO implements Serializable {
 	
 	@NotBlank(message = "Campo obrigatório")
 	private String firstName;
+	
+	@NotBlank(message = "Campo obrigatório")
 	private String lastName;
 	
 	@Email(message = "Favor adicionar o email")

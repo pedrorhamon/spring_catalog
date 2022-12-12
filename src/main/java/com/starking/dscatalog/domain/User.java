@@ -16,8 +16,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -47,14 +45,12 @@ public class User implements UserDetails, Serializable {
 	@Column(name = "first_name")
 	private String firstName;
 	
-	@NotBlank
 	@Column(name = "last_name")
 	private String lastName;
 	
 	@Column(unique = true)
 	private String email;
 	
-	@NotNull
 	private String password;
 	
 	@ManyToMany(fetch = FetchType.EAGER)

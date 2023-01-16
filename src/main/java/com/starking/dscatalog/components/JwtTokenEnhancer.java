@@ -22,7 +22,7 @@ public class JwtTokenEnhancer implements TokenEnhancer {
 	@Override
 	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
 
-		User user = userRepository.findByEmail(authentication.getName());
+		User user = this.userRepository.findByEmail(authentication.getName());
 		
 		Map<String, Object> map = new HashMap<>();
 		map.put("userFirstName", user.getFirstName());

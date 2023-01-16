@@ -88,7 +88,6 @@ public class UserService implements UserDetailsService {
 	}
 	
 	private void copyDtoToEntity(UserDTO dto, User entity) {
-
 		entity.setFirstName(dto.getFirstName());
 		entity.setLastName(dto.getLastName());
 		entity.setEmail(dto.getEmail());
@@ -102,7 +101,6 @@ public class UserService implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
 		User user = this.userRepository.findByEmail(username);
 		if (user == null) {
 			logger.error("User not found: " + username);
